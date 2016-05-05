@@ -1,0 +1,6 @@
+{
+    "parent":"cyborgutils:item/generic_item",
+    "textures": {
+        "layer0":"cyborgutils:items/flippers"
+    }
+}
