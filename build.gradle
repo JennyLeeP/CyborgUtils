@@ -14,20 +14,24 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-/*
-// for people who want stable - not yet functional for MC 1.8.8 - we require the forgegradle 2.1 snapshot
-plugins {
-    id "net.minecraftforge.gradle.forge" version "2.0.2"
+repositories {
+    maven { url "http://dvs1.progwml6.com/files/maven" }
 }
-*/
-version = "1.9-1.0"
-group= "com.cyborgJenn.cyborgUtils" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "CyborgUtils"
+
+/* Java Version Compatibility */
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+version = "${mc_version}-${major_version}.${minor_version}.${build_number}"
+group= package_group
+archivesBaseName = mod_name
 
 minecraft {
-    version = "1.9-12.16.1.1888"
+    version = "${mc_version}-${forge_version}"
     runDir = "run"
     
+	useDepAts = true
+	
     // the mappings can be changed at any time, and must be in the following format.
     // snapshot_YYYYMMDD   snapshot are built nightly.
     // stable_#            stables are built at the discretion of the MCP team.
@@ -58,7 +62,8 @@ dependencies {
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
+	
+	deobfCompile "mezz.jei:jei_${mc_version}:${jei_version}"
 }
 
 processResources
