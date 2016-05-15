@@ -7,7 +7,5 @@
 /PSD-assets/
 .classpath
 .project
-gradlew
-gradlew.bat
 CyborgUtils_Client.launch
 CyborgUtils_Server.launch
